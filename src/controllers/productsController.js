@@ -24,17 +24,33 @@ const controller = {
 		}
 		
 	},
-	/*
+	
 	// Create - Form to create
 	create: (req, res) => {
-		// Do the magic
+		res.render("product-create-form")
 	},
 	
 	// Create -  Method to store
 	store: (req, res) => {
-		// Do the magic
-	},
+		const productToStore = {
+			"id": 2,
+			"name": req.body.name,
+			"price":req.body.price,
+			"discount":req.body.discount,
+			"category":req.body.category,
+			"description":req.body.description,
+			"image":req.body.image
+		}
+		products.push(productToStore);
+		let productsJson=JSON.stringify(products,null,2)
+	
 
+		console.log(productsJson)
+		fs.writeFileSync("./src/data/productsDataBase.json",productsJson)
+
+		res.redirect("/")
+	},
+	/*
 	// Update - Form to edit
 	edit: (req, res) => {
 		// Do the magic
