@@ -29,7 +29,11 @@
 						</figure>
 						<article class="product-box_data">
 							<h2><%=product.price%></h2>
-							<span><%=product.discount%></span>
+							<% if (product.discount>0) { %>
+							 
+							
+							<span><%=product.discount%>%</span>
+							<% } %>
 							<p><%=product.name%></p>
 							<i class="fas fa-truck"></i>
 						</article>
@@ -58,7 +62,10 @@
 						</figure>
 						<article class="product-box_data">
 							<h2><%= product.price%></h2>
-							<span><%= product.discount%></span>
+							
+							<% if (product.discount>0) { %> 
+							<span><%= product.discount%>%</span>
+							<% } %>
 							<p><%= product.name%></p>
 							<i class="fas fa-truck"></i>
 						</article>

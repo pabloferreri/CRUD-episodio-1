@@ -1,12 +1,12 @@
 // ************ Require's ************
-/*const express = require('express');
+const express = require('express');
 const router = express.Router();
 
 // ************ Controller Require ************
 const productsController = require('../controllers/productsController');
 
 /*** GET ALL PRODUCTS ***/ 
-/*router.???('/', productsController.index); 
+router.get('/', productsController.index); 
 
 /*** CREATE ONE PRODUCT ***/ 
 /*router.???('/???/', productsController.create); 
@@ -22,7 +22,7 @@ router.???('/:id', productsController.update);
 
 
 /*** DELETE ONE PRODUCT***/ 
-/*router.???('/:id', productsController.destroy); 
+/*router.???('/:id', productsController.destroy); */
 
 
-module.exports = router;*/
+module.exports = router;

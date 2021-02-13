@@ -1,4 +1,4 @@
-/*const fs = require('fs');
+const fs = require('fs');
 const path = require('path');
 
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
@@ -9,9 +9,10 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const controller = {
 	// Root - Show all products
 	index: (req, res) => {
-		// Do the magic
-	},
-
+		
+		res.render("products",{products: products})
+	}
+	/*
 	// Detail - Detail from one product
 	detail: (req, res) => {
 		// Do the magic
@@ -39,7 +40,7 @@ const controller = {
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
 		// Do the magic
-	}
+	}*/
 };
 
-module.exports = controller;*/
+module.exports = controller;
