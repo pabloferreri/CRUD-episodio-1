@@ -13,7 +13,7 @@ const controller = {
 		const LastVisited = products.filter(product => product.category == "visited");	
 
 
-		res.render("index", {LastVisited: LastVisited, productsInSale: productsInSale})
+		return res.render("index", {title: "Home",LastVisited: LastVisited, productsInSale: productsInSale})
 	},
 	/*search: (req, res) => {
 		// Do the magic

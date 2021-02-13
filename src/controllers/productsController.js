@@ -10,14 +10,21 @@ const controller = {
 	// Root - Show all products
 	index: (req, res) => {
 		
-		res.render("products",{products: products})
-	}
-	/*
+		return res.render("products",{products: products})
+	},
+	
 	// Detail - Detail from one product
 	detail: (req, res) => {
-		// Do the magic
-	},
+		const product = products.find(product => product.id == req.params.id);
 
+		if (product) {
+			return res.render("detail", {product: product})
+		}else{
+			return res.send("error");
+		}
+		
+	},
+	/*
 	// Create - Form to create
 	create: (req, res) => {
 		// Do the magic
