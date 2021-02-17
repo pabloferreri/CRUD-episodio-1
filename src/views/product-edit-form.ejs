@@ -6,11 +6,13 @@
 	<!-- Header -->
 	<%- include('partials/headerNavbar') %>
 	<!-- /Header -->
-
+	 
+	
 	<div class="container products-wrapper">
+		
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Estás editando: <i>PRODUCT NAME</i></h2>
+				<h2 class="products-title">Estás editando: <i><%= product.name%></i></h2>
 			</div>
 		</div>
 		<div class="col-12">
@@ -38,7 +40,7 @@
 					</div>
 					<div class="col-12">
 						<label for="description" class="form-label">Descipción:</label>
-						<textarea name="description" id="description" class="form-input"><%= productToEdit.description %></textarea>
+						<textarea name="description" id="description" class="form-input"><%= product.description%>	</textarea>
 					</div>
 					<div class="col-12">
 						<button type="submit" class="buy-now-button">Guardar producto</button>
@@ -46,7 +48,7 @@
 				</div>
 			</form>
 		</div>
-
+		
 	</div>
 	<!-- /todos los productos -->
 
