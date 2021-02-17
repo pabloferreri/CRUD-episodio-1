@@ -73,12 +73,14 @@ const controller = {
 	update: (req, res) => {
 		const productToEdit = products.find(product => product.id == req.params.id);
 		
-		res.send("Fui por put");
+		res.send(productToEdit);
 	},
 	
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
 		
+		
+
 		const finalProduct = products.filter(product => product.id != req.params.id);
 		
 		let productsJson=JSON.stringify(finalProduct,null,2)

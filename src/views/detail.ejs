@@ -32,13 +32,18 @@
 								/
 								<b><%= product.discount%>%</b>
 							</p>
+							
+							 
+							
+								<% if (product.discount > 0) { %> 
 							<p class="product-detail-price">
 								$<%= product.price - ((product.price*product.discount)/100)%>
 							</p>
+							<% } else { %>
 							<p class="product-detail-price">
 								$<%= product.price%>
 							</p>
-
+							<% } %>
 						<ul class="actions-list">
 							<li>
 								<i class="fas fa-credit-card"></i>
@@ -54,7 +59,7 @@
 						<hr>
 
 						<a href="/products/<%= product.id%>/edit" class="action-button edit">EDITAR PRODUCTO</a>
-						<form action="/products/<%= product.id%>" method="POST" style="display: inline-flex">
+						<form action="/products/<%= product.id%>?_method=DELETE" method="POST" style="display: inline-flex">
 							<button type="submit" class="action-button delete">ELIMINAR</button>
 						</form>
 					</article>
