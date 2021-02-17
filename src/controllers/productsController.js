@@ -61,7 +61,7 @@ const controller = {
 	edit: (req, res) => {
 
 		const product = products.find(product => product.id == req.params.id);
-
+		
 		if (product) {
 			return res.render("product-edit-form",{product: product})
 		}else{
@@ -70,10 +70,27 @@ const controller = {
 	},
 	
 	// Update - Method to update
-	update: (req, res) => {
-		const productToEdit = products.find(product => product.id == req.params.id);
+	update: (req, res) => { 
 		
-		res.send(productToEdit);
+		let productToEdit=products.find(product=>(product.id==req.params.id));
+
+ 		let newArray = products.map(product=>{
+
+			 if(product.id==productToEdit.id){
+				product.name =req.body.name;
+				product.price =req.body.price;
+				product.discount =req.body.discount;
+				product.category =req.body.category;
+				product.description =req.body.description;
+			 }
+			 return product;
+		 })
+
+		 let productJson = JSON.stringify(newArray, null, 2);
+		 fs.writeFileSync('./src/data/productsDataBase.json', productJson);
+		 		
+
+		res.redirect("/");
 	},
 	
 	// Delete - Delete one product from DB
