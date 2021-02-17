@@ -68,12 +68,14 @@ const controller = {
 			return res.send("error");
 		}
 	},
-	/*
+	
 	// Update - Method to update
 	update: (req, res) => {
-		// Do the magic
+		const productToEdit = products.find(product => product.id == req.params.id);
+		
+		res.send("Fui por put");
 	},
-	*/
+	
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
 		
