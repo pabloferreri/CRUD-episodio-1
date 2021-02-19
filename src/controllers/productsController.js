@@ -49,19 +49,21 @@ const controller = {
 			"description":req.body.description,
 			"image":req.body.image
 		}
+
+		console.log(req.body)
 		products.push(productToStore);
 		let productsJson=JSON.stringify(products,null,2)
 
 		fs.writeFileSync("./src/data/productsDataBase.json",productsJson)
 
-		return res.redirect("/")
+		return res.redirect("/products")
 	},
 	
 	// Update - Form to edit
-	edit: (req, res) => {
+	/*edit: (req, res) => {
 
 		const product = products.find(product => product.id == req.params.id);
-		
+
 		if (product) {
 			return res.render("product-edit-form",{product: product})
 		}else{
@@ -82,6 +84,43 @@ const controller = {
 				product.discount =req.body.discount;
 				product.category =req.body.category;
 				product.description =req.body.description;
+			 }
+			 return product;
+		 })
+
+		 let productJson = JSON.stringify(newArray, null, 2);
+		 fs.writeFileSync('./src/data/productsDataBase.json', productJson);
+		 		
+
+		res.redirect("/");
+	},*/
+	// Update - Form to edit
+	edit: (req, res) => {
+		
+		let product=products.find(product=>(product.id==req.params.id));
+
+		res.render("product-edit-form", {product:product})
+	},
+
+	// Update - Method to update
+
+	update: (req, res) => { 
+
+		console.log(req.body);
+		
+		let productToEdit=products.find(product=>(product.id==req.params.id));
+
+		console.log(req.body)
+
+ 		let newArray = products.map(product=>{
+
+			 if(product.id==productToEdit.id){
+				product.name =req.body.name;
+				product.price =req.body.price;
+				product.discount =req.body.discount;
+				product.category =req.body.category;
+				product.description =req.body.description;
+				
 			 }
 			 return product;
 		 })
